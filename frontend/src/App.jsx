@@ -14,6 +14,9 @@ import AdminJobs from "./components/admin/AdminJobs";
 import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants'
 import ProtectedRoute from './components/admin/ProtectedRoute'
+import Dashboard from './components/dashboard/Dashboard'
+import AiInterview from './components/AiInterview'
+import JobPathway from './components/JobPathway'
 
 
 const appRouter = createBrowserRouter([
@@ -38,12 +41,24 @@ const appRouter = createBrowserRouter([
     element: <JobDescription />
   },
   {
+    path:'/pathway/:id',
+    element: <JobPathway />
+  },
+  {
     path: "/browse",
     element: <Browse />
   },
   {
     path: "/profile",
     element: <Profile />
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />
+  },
+  {
+    path: '/ai-mock-interview',
+    element: <AiInterview />
   },
   // admin ke liye yha se start hoga
   {

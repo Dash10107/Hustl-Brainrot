@@ -6,6 +6,7 @@ import { APPLICATION_API_END_POINT } from '@/utils/constant';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAllApplicants } from '@/redux/applicationSlice';
+import JobInsights from './AiInsight';
 
 const Applicants = () => {
     const params = useParams();
@@ -30,6 +31,7 @@ const Applicants = () => {
                 <h1 className='font-bold text-xl my-5'>Applicants {applicants?.applications?.length}</h1>
                 <ApplicantsTable />
             </div>
+            <JobInsights jobId = {params.id}/>
         </div>
     )
 }

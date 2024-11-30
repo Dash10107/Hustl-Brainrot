@@ -1,6 +1,8 @@
 import express from "express";
-import { generateJobPathway } from "../controllers/ai.controller.js";
+import { generateJobPathway,getApplicantsWithAI } from "../controllers/ai.controller.js";
+import isAuthenticated from "../middlewares/isAuthenticated.js";
 const router = express.Router();
+
 
 
 router.get("/jobs/:id/pathway", async (req, res) => {
@@ -12,5 +14,9 @@ router.get("/jobs/:id/pathway", async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+router.get("/jobs/:id/applicants", getApplicantsWithAI);
+
+
 
 export default router;

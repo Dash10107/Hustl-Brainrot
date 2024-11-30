@@ -1,0 +1,21 @@
+{
+  "name": "jobportal-yt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:ai": "cd ai_mock_interview && npm install",
+    "install:all": "npm run install:frontend && npm run install:backend && npm run install:ai",
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm run dev",
+    "start:ai": "cd ai_mock_interview && npm run dev",
+    "start:all": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm run start:ai\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

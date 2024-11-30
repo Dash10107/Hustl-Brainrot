@@ -52,6 +52,22 @@ const Profile = () => {
                         }
                     </div>
                 </div>
+                {/* social links */}
+                <div className='my-5'>
+                    <h1>Social Links</h1>
+                    <div className='flex items-center gap-1'>
+                        {
+                            user?.profile?.socialLinks?.length !== 0 ? user?.profile?.socialLinks?.map((
+                                item, index
+                            ) => <a key={item}
+                            href={item} target="_blank" rel="noopener noreferrer">
+                                <Badge>{item}</Badge>
+                            </a>
+                            ) : <span>NA</span>
+                        }
+                    </div>
+                </div>
+
                 <div className='grid w-full max-w-sm items-center gap-1.5'>
                     <Label className="text-md font-bold">Resume</Label>
                     {

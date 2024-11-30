@@ -20,6 +20,9 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         phoneNumber: user?.phoneNumber || "",
         bio: user?.profile?.bio || "",
         skills: user?.profile?.skills?.map(skill => skill) || "",
+        socials : user?.profile?.socialLinks?.map( 
+            social => social
+         ) || [],
         file: user?.profile?.resume || ""
     });
     const dispatch = useDispatch();
@@ -41,6 +44,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         formData.append("phoneNumber", input.phoneNumber);
         formData.append("bio", input.bio);
         formData.append("skills", input.skills);
+        formData.append("socials", input.socials);
         if (input.file) {
             formData.append("file", input.file);
         }
@@ -129,6 +133,39 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     className="col-span-3"
                                 />
                             </div>
+                            {/* socials */}
+                            <div className='grid grid-cols-4 items-center gap-4'>
+                                
+                                <Label htmlFor="social" className="text-right">Social</Label>
+
+                                {/* its an array of links so we need to map over it and create a new input for each one */}
+
+                                {input.socials.map((social, index) => (
+                                    <React.Fragment key={index}>
+                                        <Label htmlFor="social" className="text-right">Social</Label>
+                                        <Input
+                                            id="social"
+                                            name="social"
+                                            value={social}
+                                            onChange={e => {
+                                                const newSocials = [...input.socials];
+                                                newSocials[index] = e.target.value;
+                                                setInput({ ...input, socials: newSocials });
+                                            }}
+                                            className="col-span-3"
+                                        />
+                                    </React.Fragment>
+                                ))}
+                                {/* we need to allow user to add social too f it is empty array so wee need a plus button that inits a input box to add  */}
+                                <Button
+                                    type="button"
+                                    onClick={() => setInput({ ...input, socials: [...input.socials, ""] })}
+                                    className="col-span-4"
+                                    >
+                                        Add Social
+                                    </Button>
+                            </div>
+                            
                             <div className='grid grid-cols-4 items-center gap-4'>
                                 <Label htmlFor="file" className="text-right">Resume</Label>
                                 <Input
