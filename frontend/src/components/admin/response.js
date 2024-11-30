@@ -1,58 +1,88 @@
-export  const data = {
+export const data = {
     "job": {
-        "id": "6749cf17dc0267ae9d4c5c8e",
-        "title": "Full Stack Developer",
-        "description": "Job description Key Responsibilities: • Coding prowess: A deep understanding of JavaScript, HTML, and CSS. • Framework mastery: Rock-solid experience with Node.js and React. • Database wizardry: Knowledge of database management systems and ORM tools. • API ninja: Experience with RESTful APIs and API design principles. • Version control guru: Familiarity with Git. • Problem-solving skills: The ability to conquer any coding challenge. • Team player: A knack for working collaboratively. • Progressive web app expertise: Building apps that work seamlessly across devices. • Cloud ninja: Experience with Kubernetes and AWS/GCP. • Testing prowess: Familiarity with testing frameworks. • Serverless wizardry: Knowledge of serverless architectures."
+      "id": "6749cf17dc0267ae9d4c5c8e",
+      "title": "Full Stack Developer",
+      "description": "Job description Key Responsibilities: • Coding prowess: A deep understanding of JavaScript, HTML, and CSS. • Framework mastery: Rock-solid experience with Node.js and React. • Database wizardry: Knowledge of database management systems and ORM tools. • API ninja: Experience with RESTful APIs and API design principles. • Version control guru: Familiarity with Git. • Problem-solving skills: The ability to conquer any coding challenge. • Team player: A knack for working collaboratively. • Progressive web app expertise: Building apps that work seamlessly across devices. • Cloud ninja: Experience with Kubernetes and AWS/GCP. • Testing prowess: Familiarity with testing frameworks. • Serverless wizardry: Knowledge of serverless architectures."
     },
     "applicants": [
-        {
-            "applicant": {
-                "id": "6749e83bde8f95cbd496eb88",
-                "fullname": "Vinay Vora",
-                "email": "sample3@gmail.com",
-                "skills": [
-                    "Full Stack Developer"
-                ]
-            },
-            "insights": "```json\n{\n    \"relevanceScore\": 80,\n    \"skillMatch\": [\"Python\", \"Node.js\", \"React\"],\n    \"missingSkills\": [],\n    \"professionalBrand\": {\n        \"strengths\": \"Demonstrates a well-rounded tech stack as a Full Stack Developer with expertise in Python, Node.js, and React. LinkedIn profile is professional and up-to-date with relevant project details.\",\n        \"onlineEngagement\": \"Regularly interacts with industry peers, actively participates in online discussions and forums related to software development.\",\n        \"developmentAreas\": \"Consider including more specific examples of project accomplishments and quantifying results to showcase the impact of work.\"\n    },\n    \"summary\": \"The applicant's resume closely aligns with the job requirements, showcasing strong proficiency in the necessary skills for a Full Stack Developer role. They possess a comprehensive understanding of Python, Node.js, and React, which are crucial for this position. Social profile insights indicate a strong professional brand and active online engagement within the tech community.\",\n    \"sentiment\": \"positive\"\n}\n```",
-            "rankingScore": "**Score:** 85\n\n**Evaluation Breakdown:**\n\n* **Skill Match (25%):** 25 (Exact match of all required skills)\n* **Relevance of Experience (20%):** 20 (Highly relevant experience as a Full Stack Developer)\n* **Resume Quality (15%):** 14 (Well-structured with clear and concise achievement descriptions)\n* **Missing Skills Impact (10%):** 10 (No significant skill gaps identified)\n* **Soft Skills and Professional Qualities (10%):** 9 (Strong interpersonal skills and adaptability evident from resume)\n* **Social Profile Insights (20%):** 17\n    * GitHub: Active contributor with high-quality React and Python projects\n    * LinkedIn: Professional and informative profile, abundant endorsements and recommendations\n    * Personal Portfolio: Well-organized portfolio showcasing personal branding and additional skills\n* **Professional Continuous Learning (10%):** 10 (Evidence of ongoing skill development through side projects and personal portfolio)\n\n**Explanation:**\n\nThe applicant demonstrates a strong alignment with the Full Stack Developer role, showcasing proficiency in all required skills and extensive relevant experience. The resume is well-written and highlights clear accomplishments. The social profile insights further enhance the evaluation, providing evidence of active contributions to the tech community, robust professional networking, and a dedication to professional growth. While there is room for improvement in terms of cloud technology exposure and certification attainment, the overall profile presents a highly capable and qualified candidate."
+      {
+        "applicant": {
+          "id": "6749e83bde8f95cbd496eb88",
+          "fullname": "Vinay Vora",
+          "email": "sample3@gmail.com",
+          "skills": ["Full Stack Developer"]
         },
-        {
-            "applicant": {
-                "id": "6749e7a2de8f95cbd496eb70",
-                "fullname": "Harsh Jhaveri",
-                "email": "sample1@gmail.com",
-                "skills": [
-                    "Full Stack Developer"
-                ]
-            },
-            "insights": "```JSON\n{\n    \"relevanceScore\": 75,\n    \"skillMatch\": [\n        \"Python\",\n        \"Node.js\",\n        \"React\"\n    ],\n    \"missingSkills\": [],\n    \"professionalBrand\": {\n        \"strengths\": \"Well-rounded full stack developer with a strong online presence.\",\n        \"onlineEngagement\": \"Active on GitHub and LinkedIn, showcasing personal projects and industry thought leadership.\",\n        \"developmentAreas\": \"Consider expanding into cloud computing platforms like AWS or Azure.\"\n    },\n    \"summary\": \"Wagner Caetano is a highly relevant candidate for the Full Stack Developer role. Their resume demonstrates proficiency in all the required skills, including Python, Node.js, and React. Wagner's strong professional branding and active online presence further strengthen their application.\",\n    \"sentiment\": \"positive\"\n}\n```",
-            "rankingScore": "**Comprehensive Ranking**: 87/100\n\n**Detailed Metrics Breakdown:**\n\n* **Skill Match (25%):** 25/25 - Perfect alignment of technical skills with job requirements\n* **Relevance of Experience (20%):** 18/20 - Extensive full-stack development experience with highly relevant projects\n* **Resume Quality (15%):** 13/15 - Well-structured and concise resume showcasing significant achievements\n* **Missing Skills Impact (10%):** 10/10 - No major skill gaps identified\n* **Soft Skills and Professional Qualities (10%):** 8/10 - Positive online presence reflecting strong communication and collaborative abilities\n* **Social Profile Insights (20%):** 13/20\n\n**Social Profile Insights Breakdown:**\n\n* **GitHub/Code Repositories:** 5/5 - Impressive portfolio with complex open-source contributions\n* **LinkedIn:** 4/5 - Extensive professional network and endorsements highlighting industry expertise\n* **Personal Portfolio:** 4/5 - Demonstrates personal branding and additional projects\n\n**Positive Social Profile Impacts:**\n\n* Active involvement in open-source projects showcasing strong technical depth and community engagement\n* Consistent professional narrative and visibility of professional growth on LinkedIn\n\n**Constructive Feedback for Improvement:**\n\n* Consider pursuing additional certifications in cloud computing platforms to enhance the skillset\n* Explore opportunities for more advanced projects to showcase technical complexity and innovation"
+        "insights": {
+          "relevanceScore": 70,
+          "skillMatch": ["Python", "Node.js", "React"],
+          "missingSkills": [],
+          "professionalBrand": {
+            "strengths": "Strong online presence on GitHub and LinkedIn, showcasing active engagement in open-source projects and community discussions.",
+            "onlineEngagement": "Regularly contributes to technical forums and discussion groups, demonstrating a commitment to professional development and knowledge sharing.",
+            "developmentAreas": "Could consider creating personal projects or contributing to existing ones to further enhance portfolio and showcase practical implementation skills."
+          },
+          "summary": "The applicant's resume closely aligns with the job requirements, showcasing proficiency in all the key technologies: Python, Node.js, and React. Their professional branding is strong, with an active online presence and contributions to open-source projects. The resume content is well-written and confident, but additional portfolio pieces could enhance the application.",
+          "sentiment": "positive"
         },
-        {
-            "applicant": {
-                "id": "6749e6a0de8f95cbd496eb58",
-                "fullname": "sample person",
-                "email": "sample@gmail.com",
-                "skills": [
-                    "Full Stack Developer Java"
-                ]
-            },
-            "insights": "```JSON\n{\n\"relevanceScore\": 0,\n\"skillMatch\": [],\n\"missingSkills\": [\"Node.js\",\"React\"],\n\"professionalBrand\": {\n    \"strengths\": null,\n    \"onlineEngagement\": null,\n    \"developmentAreas\": \"Develop a professional social media presence\"\n},\n\"summary\": \"This applicant's resume does not demonstrate the necessary skills for this position according to the provided information. The applicant's skills do not match the job requirements. The applicant may consider gaining experience with Node.js and React to improve their chances of being a suitable candidate for roles requiring those skills.\",\n\"sentiment\": \"neutral\"\n}\n```",
-            "rankingScore": "**Score**: 47\n\n**Metric Breakdown**:\n\n* Skill Match (25%): 10% (limited alignment with job requirements)\n* Relevance of Experience (20%): 20% (professional experience aligns with job duties)\n* Resume Quality (15%): 10% (standard resume structure, clear but lacking specific achievement details)\n* Missing Skills Impact (10%): 10% (significant skill gaps in Node.js and React)\n* Soft Skills and Professional Qualities (10%): 5% (no evidence of exceptional soft skills)\n* Social Profile Insights (20%): 3% (weak professional online presence, limited GitHub contributions, inconsistent narrative)\n* Professional Continuous Learning (10%): 7% (some evidence of ongoing learning, but no major certifications)\n\n**Explanation**:\n\nThis applicant's overall ranking is negatively impacted by their limited skill match and missing skills. Despite relevant professional experience, the absence of crucial technical skills may hinder their ability to perform job duties effectively. The applicant's resume, while well-structured, lacks detailed achievements that showcase their abilities.\n\nNegative insights from their social profiles further detract from their score. Their GitHub and LinkedIn presence are limited, with minimal project contributions and professional endorsements. Additionally, their personal portfolio is not provided for evaluation.\n\nTo improve their ranking, it is recommended for this applicant to:\n\n* Enhance their technical skills, particularly in Node.js and React, to better align with job requirements.\n* Showcase their professional achievements and accomplishments in more detail on their resume and LinkedIn profile.\n* Build a stronger online presence by actively contributing to open-source projects, establishing a professional network, and sharing their work through a personal portfolio."
-        },
-        {
-            "applicant": {
-                "id": "67475411e04da68af10f0418",
-                "fullname": "Daksh Jain",
-                "email": "dakshcjain@gmail.com",
-                "skills": [
-                    "Full Stack Developer"
-                ]
-            },
-            "insights": "```json\n{\n  \"relevanceScore\": 70,\n  \"skillMatch\": [\n    \"Python\",\n    \"Node.js\",\n    \"React\"\n  ],\n  \"missingSkills\": [],\n  \"professionalBrand\": {\n    \"strengths\": \"Well-rounded Full Stack Developer\",\n    \"onlineEngagement\": \"Active on GitHub and LinkedIn\",\n    \"developmentAreas\": \"None identified\"\n  },\n  \"summary\": \"This applicant is a highly relevant match for the Full Stack Developer role. Their resume showcases proficiency in the required skills of Python, Node.js, and React. Additionally, their active presence on professional platforms like GitHub and LinkedIn demonstrates their commitment to professional growth.\",\n  \"sentiment\": \"positive\"\n}\n```",
-            "rankingScore": "**Score**: 85\n\n**Granular Breakdown**:\n\n- **Skill Match (25%)**: 95% - Exact match for required skills (Python, Node.js, React)\n- **Relevance of Experience (20%)**: 85% - Highly relevant full-stack development experience\n- **Resume Quality (15%)**: 80% - Well-structured resume with clear presentation of achievements\n- **Missing Skills Impact (10%)**: 100% - No significant skill gaps identified\n- **Soft Skills and Professional Qualities (10%)**: 90% - Excellent interpersonal skills and adaptability\n- **Social Profile Insights (20%)**: 85%\n    - GitHub: High-quality contributions, innovative projects\n    - LinkedIn: Robust professional network, strong recommendations\n    - Personal Portfolio: Showcase of personal branding, additional projects\n- **Professional Continuous Learning (10%)**: 80% - Ongoing involvement in open source projects, pursuing certifications\n\n**Key Factors Influencing Ranking**:\n\n- **Strong Skill Alignment and Relevant Experience**: The applicant's skills and experience perfectly aligned with the job requirements, indicating a high likelihood of success in the role.\n- **Exceptional GitHub Portfolio**: The applicant's GitHub repository showcased a wide range of projects demonstrating strong technical proficiency in React and Python, positively impacting the Skill Match and Social Profile Insights scores.\n- **Active LinkedIn Profile**: The applicant's LinkedIn profile provided evidence of professional growth, networking, and engagement, contributing to the Soft Skills and Professional Qualities score.\n\n**Specific Insights from Social Profiles**:\n\n- A collaborative open-source project on GitHub demonstrated the applicant's technical depth and commitment to community engagement.\n- The applicant's LinkedIn profile featured numerous recommendations and endorsements from peers and colleagues, indicating a strong professional network.\n- The applicant's personal portfolio highlighted additional skills in mobile development, providing a well-rounded view of their capabilities."
+        "rankingScore": {
+          "score": 78,
+          "explanation": "The applicant demonstrates strong skill alignment and a professional online presence. Their resume effectively showcases their skills and experience, while their social profiles provide deeper insights into their technical contributions and engagement with the community. However, they could benefit from developing a personal portfolio to further enhance their application.",
+          "granular_breakdown": {
+            "skill_match": 25,
+            "relevance_of_experience": 18,
+            "resume_quality": 14,
+            "missing_skills_impact": 10,
+            "soft_skills_and_professional_qualities": 10,
+            "social_profile_insights": 20,
+            "professional_continuous_learning": 10
+          },
+          "social_profile_insights_details": {
+            "github": "The applicant has a strong GitHub profile, showcasing contributions to several open-source projects. Their code is well-structured and well-documented, demonstrating a high level of technical proficiency.",
+            "linkedin": "The applicant's LinkedIn profile presents a professional and well-rounded image. They have a strong network of connections and regularly engage in professional discussions and knowledge sharing.",
+            "portfolio": "While the applicant does not have a personal portfolio, their GitHub projects serve as a testament to their skills and practical experience. Creating a dedicated portfolio could further showcase their range and depth of work."
+          }
         }
+      },
+      {
+        "applicant": {
+          "id": "6749e7a2de8f95cbd496eb70",
+          "fullname": "Harsh Jhaveri",
+          "email": "sample1@gmail.com",
+          "skills": ["Full Stack Developer"]
+        },
+        "insights": {
+          "relevanceScore": 60,
+          "skillMatch": [],
+          "missingSkills": ["Python", "React"],
+          "professionalBrand": {
+            "strengths": "Full-stack development experience",
+            "onlineEngagement": "Active on LinkedIn, GitHub, and personal website",
+            "developmentAreas": "Highlighting relevant skills and quantifying accomplishments in the resume"
+          },
+          "summary": "The applicant has a strong background in full-stack development, but their resume does not specifically mention proficiency in Python or React, which are key requirements for the role. Providing more detailed information about their experience with these technologies would significantly improve their match to the job requirements.",
+          "sentiment": "positive"
+        },
+        "rankingScore": {
+          "score": 70,
+          "explanation": "The applicant's technical skills and experience align well with the job requirements, but their resume lacks specific mention of key technologies like Python and React. Their strong online presence demonstrates active professional engagement and a commitment to continuous learning, which positively impacts their overall score.",
+          "granular_breakdown": {
+            "skill_match": 75,
+            "relevance_of_experience": 60,
+            "resume_quality": 65,
+            "missing_skills_impact": 60,
+            "soft_skills_and_professional_qualities": 70,
+            "social_profile_insights": 75,
+            "professional_continuous_learning": 70
+          },
+          "social_profile_insights_details": {
+            "github": "The applicant has a maintained GitHub profile that showcases their technical contributions and open-source project involvement, highlighting their technical depth.",
+            "linkedin": "The applicant's LinkedIn profile demonstrates a strong professional network with relevant endorsements and recommendations, indicating a positive professional reputation.",
+            "portfolio": "The personal portfolio provides evidence of the applicant's skills and additional projects, showcasing their ability to work independently and present their work effectively."
+          }
+        }
+      },
+    
     ],
     "success": true
-}
+  }
+  

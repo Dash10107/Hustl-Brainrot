@@ -17,15 +17,8 @@ function parseInsights(insights) {
 function parseRankingScore(rankingScore) {
   try {
     const cleanRankingScore = rankingScore.replace(/^```markdown\n|\n```$/g, '');
-    console.log(cleanRankingScore);
-    const scoreMatch = cleanRankingScore.match(/(?:\*\*Score\*\*: (\d+))|\*\*Comprehensive Ranking\*\*:\s*(\d+)\/(\d+)/);
-    const score = scoreMatch[1] || scoreMatch[2] || 85 
-// evaluation starts from **Granular Breakdown**: or **Metric Breakdown**: or **Evaluation Breakdown**: so give me match string accordingly 
-
-const breakdownMatch = cleanRankingScore.match(/(?:\*\*(Granular Breakdown|Metric Breakdown|Evaluation Breakdown|Detailed Metrics Breakdown)\*\*:([\s\S]+?)(?=\n\*\*|\n$))/);
-const evaluation = breakdownMatch[2] || '';
-const explanationMatch = cleanRankingScore.match(/(?:\*\*Explanation\*\*:\s*([\s\S]+?)(?=\n$))/);
-
+    console.log(cleanRankingScore)
+    
 } catch (error) {
     console.error('Error parsing ranking score:', error);
     return null;
