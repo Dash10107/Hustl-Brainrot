@@ -82,6 +82,95 @@ export const data = {
         }
       },
     
+             {
+            "applicant": {
+                "id": "6749e6a0de8f95cbd496eb58",
+                "fullname": "sample person",
+                "email": "sample@gmail.com",
+                "skills": [
+                    "Full Stack Developer Java"
+                ]
+            },
+            "insights": {
+                "relevanceScore": 0,
+                "skillMatch": [],
+                "missingSkills": [
+                    "Python",
+                    "Node.js",
+                    "React"
+                ],
+                "professionalBrand": {
+                    "strengths": [],
+                    "onlineEngagement": [],
+                    "developmentAreas": []
+                },
+                "summary": "The applicant's resume does not match the job requirements. The applicant is a Full Stack Developer with Java skills, but the job requires Python, Node.js, and React.",
+                "sentiment": "neutral"
+            },
+            "rankingScore": {
+                "score": 50,
+                "explanation": "The applicant's resume has some relevant skills but lacks the programming languages required for the job. Their online presence provides value but reveals potential skill gaps.",
+                "granular_breakdown": {
+                    "skill_match": 10,
+                    "relevance_of_experience": 15,
+                    "resume_quality": 18,
+                    "missing_skills_impact": 7,
+                    "soft_skills_and_professional_qualities": 12,
+                    "social_profile_insights": 60,
+                    "professional_continuous_learning": 10
+                },
+                "social_profile_insights_details": {
+                    "github": "Active contributions to relevant open source projects, showcases technical proficiency.",
+                    "linkedin": "Strong professional network and endorsements, highlighting industry recognition.",
+                    "portfolio": "Limited visibility and lack of personal branding, indicating potential development areas."
+                }
+            }
+        },
+        {
+            "applicant": {
+                "id": "67475411e04da68af10f0418",
+                "fullname": "Daksh Jain",
+                "email": "dakshcjain@gmail.com",
+                "skills": [
+                    "Full Stack Developer"
+                ]
+            },
+            "insights": {
+                "relevanceScore": 70,
+                "skillMatch": [
+                    "Python",
+                    "Node.js",
+                    "React"
+                ],
+                "missingSkills": [],
+                "professionalBrand": {
+                    "strengths": "Skilled Full Stack developer with a strong portfolio of personal projects",
+                    "onlineEngagement": "Active on GitHub and LinkedIn, contributing to open-source projects and engaging in technical discussions",
+                    "developmentAreas": "Could consider highlighting specific accomplishments or quantifying results in the resume to further enhance credibility"
+                },
+                "summary": "The applicant's resume closely matches the job requirements, demonstrating a strong foundation in Python, Node.js, and React. Their portfolio of personal projects showcases their practical skills and passion for technology. The applicant's active presence on GitHub and LinkedIn indicates a commitment to professional development and collaboration.",
+                "sentiment": "positive"
+            },
+            "rankingScore": {
+                "score": 85,
+                "explanation": "The applicant's strong technical skills, relevant experience, and active online presence indicate a high level of capability and potential. Their personal projects and open-source contributions demonstrate a commitment to continuous learning and professional growth.",
+                "granular_breakdown": {
+                    "skill_match": 25,
+                    "relevance_of_experience": 20,
+                    "resume_quality": 15,
+                    "missing_skills_impact": 10,
+                    "soft_skills_and_professional_qualities": 10,
+                    "social_profile_insights": 20,
+                    "professional_continuous_learning": 10
+                },
+                "social_profile_insights_details": {
+                    "github": "Demonstrates a strong understanding of software development principles through high-quality contributions to open-source projects.",
+                    "linkedin": "Has a well-developed professional network, actively engages in discussions, and receives positive endorsements and recommendations.",
+                    "portfolio": "Showcases a range of personal projects that highlight technical skills, creativity, and a problem-solving mindset."
+                }
+            }
+        }
+    
     ],
     success: true
   }

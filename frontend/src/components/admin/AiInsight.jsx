@@ -17,7 +17,7 @@ function parseInsights(insights) {
 function parseRankingScore(rankingScore) {
   try {
     const cleanRankingScore = rankingScore.replace(/^```markdown\n|\n```$/g, '');
-    console.log(cleanRankingScore)
+    // console.log(cleanRankingScore)
     
 } catch (error) {
     console.error('Error parsing ranking score:', error);
@@ -39,7 +39,7 @@ const JobInsights = ({jobId}) => {
         // const data = response.data;
         setJobData(data.job);
         setApplicantsData(data.applicants);
-
+        // console.log(data.applicants)
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data", error);
@@ -71,14 +71,14 @@ const JobInsights = ({jobId}) => {
      <h3>Applicants</h3>
             {applicantsData.length === 0 && <p>No applicants available.</p>}
             {applicantsData?.map((applicant, index) => {
-            
-                applicant.insights = parseInsights(applicant.insights);
-                applicant.rankingScore = parseRankingScore(applicant.rankingScore);
+              // console.log(applicant)
                 
                 return (
                     <ApplicantCard
                         key={applicant.applicant.id}
                        applicant={applicant.applicant}
+                       insights={applicant.insights}
+                      rankingScore={applicant.rankingScore}
                     />
                 );
             })}

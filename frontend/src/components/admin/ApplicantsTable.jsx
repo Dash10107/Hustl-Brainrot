@@ -8,6 +8,7 @@ import { APPLICATION_API_END_POINT } from '@/utils/constant';
 import axios from 'axios';
 import PopupModal from './PopupModal';
 import { Modal, Typography } from '@mui/material';
+import JobInsights from './AiInsight';
 
 const shortlistingStatus = ['Accepted', 'Rejected'];
 
@@ -103,7 +104,8 @@ const ApplicantsTable = () => {
               </TableRow>
             ))}
         </TableBody>
-        <PopupModal open={open} setOpen={setOpen}/>
+        {/* <PopupModal open={open} setOpen={setOpen}/> */}
+        <JobInsights jobId={applicants?.jobId} />
       </Table>
     </div>
   );
