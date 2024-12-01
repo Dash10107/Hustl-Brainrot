@@ -31,7 +31,7 @@ const Applicants = () => {
                 <h1 className='font-bold text-xl my-5'>Applicants {applicants?.applications?.length}</h1>
                 <ApplicantsTable />
             </div>
-            <JobInsights jobId = {params.id}/>
+            {/* <JobInsights jobId = {params.id}/> */}
         </div>
     )
 }
