@@ -8,6 +8,8 @@ import { setSingleJob } from '@/redux/jobSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
 import { response } from "./response"
+import Navbar from './shared/Navbar';
+import Footer from './shared/Footer';
 
 const JobDescription = () => {
     const navigate = useNavigate();
@@ -37,20 +39,20 @@ const JobDescription = () => {
         }
     }
 
-    // useEffect(()=>{
-    //     const fetchSingleJob = async () => {
-    //         try {
-    //             const res = await axios.get(`${JOB_API_END_POINT}/get/${jobId}`,{withCredentials:true});
-    //             if(res.data.success){
-    //                 dispatch(setSingleJob(res.data.job));
-    //                 setIsApplied(res.data.job.applications.some(application=>application.applicant === user?._id)) // Ensure the state is in sync with fetched data
-    //             }
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-    //     fetchSingleJob(); 
-    // },[jobId,dispatch, user?._id]);
+    useEffect(()=>{
+        const fetchSingleJob = async () => {
+            try {
+                const res = await axios.get(`${JOB_API_END_POINT}/get/${jobId}`,{withCredentials:true});
+                if(res.data.success){
+                    dispatch(setSingleJob(res.data.job));
+                    setIsApplied(res.data.job.applications.some(application=>application.applicant === user?._id)) // Ensure the state is in sync with fetched data
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchSingleJob(); 
+    },[jobId,dispatch, user?._id]);
 
     useEffect(() => {
       setSingleJob(response);
@@ -58,6 +60,8 @@ const JobDescription = () => {
     
 
     return (
+        <div>
+        <Navbar />
         <div className='max-w-7xl mx-auto my-10'>
             <div className="flex items-center justify-between">
                 <div>
@@ -86,27 +90,27 @@ const JobDescription = () => {
 
             <h1 className='border-b-2 border-b-gray-300 font-medium py-4'>Job Description</h1>
             <div className="my-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="bg-gray-100 p-4 rounded-md">
+                <div className="w-full mx-auto bg-white border border-gray-200 rounded-2xl p-4">
                     <h1 className="font-bold">Role</h1>
                     <p className="text-gray-700 font-normal">{singleJob?.title}</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-md">
+                <div className="w-full mx-auto bg-white border border-gray-200 rounded-2xl p-4">
                     <h1 className="font-bold">Location</h1>
                     <p className="text-gray-700 font-normal">{singleJob?.location}</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-md">
+                <div className="w-full mx-auto bg-white border border-gray-200 rounded-2xl p-4">
                     <h1 className="font-bold">Description</h1>
                     <p className="text-gray-700 font-normal">{singleJob?.description}</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-md">
+                <div className="w-full mx-auto bg-white border border-gray-200 rounded-2xl p-4">
                     <h1 className="font-bold">Experience</h1>
                     <p className="text-gray-700 font-normal">{singleJob?.experience || "N.A."} yrs</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-md">
+                <div className="w-full mx-auto bg-white border border-gray-200 rounded-2xl p-4">
                     <h1 className="font-bold">Salary</h1>
                     <p className="text-gray-700 font-normal">{singleJob?.salary} LPA</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-md">
+                <div className="w-full mx-auto bg-white border border-gray-200 rounded-2xl p-4">
                     <h1 className="font-bold">Total Applicants</h1>
                     <p className="text-gray-700 font-normal">{singleJob?.applications?.length}</p>
                 </div>
@@ -116,12 +120,14 @@ const JobDescription = () => {
                 <button
                     type="button"
                     onClick={() => navigate(`/pathway/${singleJob?._id}`)}
-                    className="bg-[#7209b7] text-white px-6 py-2 rounded-lg shadow hover:bg-[#5f32ad] transition-all"
+                    className="bg-[#7209b7] text-white px-6 py-2 rounded-lg shadow hover:bg-[#5f32ad] transition-all font-semibold"
                 >
                     Explore Pathway
                 </button>
             </div>
 
+        </div>
+        <Footer />
         </div>
     )
 }

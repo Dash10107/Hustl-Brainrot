@@ -70,7 +70,7 @@ const JobPathway = () => {
         if (tileType === "fast-forward") return defaultColors;
         return "border-gray-300 bg-gray-200";
       case "COMPLETE":
-        return "border-yellow-500 bg-yellow-400";
+        return "border-blue-500 bg-blue-400";
       case "ACTIVE":
         return defaultColors;
       default:
@@ -127,7 +127,7 @@ const JobPathway = () => {
                           <HoverLabel
                             details={details}
                             textColor="text-gray-700"
-                            className="opacity-0 group-hover:opacity-100 transition-opacity absolute top-0 left-1/2 w-full mx-auto bg-white border border-gray-200 rounded-2xl p-4 transform-translate-x-1/2 -translate-y-full bg-gray-100 text-sm shadow-md rounded-md p-2"
+                            className="opacity-0 group-hover:opacity-100 transition-opacity absolute top-0 left-1/2 w-full mx-auto bg-white border border-gray-200 rounded-2xl p-4 transform-translate-x-1/2 -translate-y-full text-sm shadow-md"
                           />
                         </div>
                       </div>
@@ -157,24 +157,37 @@ const JobPathway = () => {
         })}
 
         {/* certifications */}
-        <div className="w-[80vw]  bg-white border border-gray-200 rounded-2xl p-4">
-          <h2 className="text-lg font-bold text-gray-700">Certifications</h2>
-          <ul className="space-y-2">
+        <div className="w-[80vw] bg-white border border-gray-200 rounded-2xl p-6 mt-8 shadow-lg">
+          <h2 className="text-2xl font-bold text-gray-700 mb-4">Certifications</h2>
+          <div className="grid grid-cols-2 gap-4">
             {response.pathway.certifications.map((cert, index) => (
-              <li key={index} className="bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-all">
+              <div 
+                key={index} 
+                className="bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1"
+              >
                 <a
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Learn more about ${cert.title}`}
-                  className="text-blue-600 hover:underline flex items-center"
+                  className="text-blue-600 hover:underline font-semibold flex items-center"
                 >
                   {cert.title}
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-5 w-5 ml-2 text-blue-500" 
+                    viewBox="0 0 20 20" 
+                    fill="currentColor"
+                  >
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                  </svg>
                 </a>
-              </li>
+              </div>
             ))}
-            </ul>
+          </div>
         </div>
+        
       </div>
     </div>
   );
