@@ -94,26 +94,19 @@ const UnitHeader = ({
     }
   };
 
-  const HoverLabel = ({
-    details,
-    className
-}) => {
-    const hoverElement = useRef(null);
-    const [width, setWidth] = useState(72);
-
-    useEffect(() => {
-        setWidth(hoverElement.current?.clientWidth ?? width);
-    }, [hoverElement.current?.clientWidth, width]);
+  const HoverLabel = ({ details, className, index }) => {
+    const fixedWidth = 500; // Set a fixed width for all HoverLabels
+    const isEven = index % 2 === 0;
 
     return (
         <div
-            className={`absolute z-10 w-max rounded-lg border-2 border-gray-200 bg-white px-5 py-4 shadow-lg ${className}`}
+            className={`absolute z-10 rounded-lg border-2 border-gray-200 bg-white px-5 py-4 shadow-lg ${className}`}
             style={{
                 top: "50%",
-                left: `-${width + 40}px`, // Adjust to position on the left
+                width: `${fixedWidth}px`, // Set fixed width
+                left: isEven ? `-${fixedWidth + 40}px` : `calc(100% + 40px)`, // Adjust for left or right
                 transform: "translateY(-50%)", // Center vertically
             }}
-            ref={hoverElement}
         >
             <h3 className="text-lg font-bold mb-2">Skills</h3>
             <ul className="list-disc ml-5 mb-4">
@@ -136,7 +129,7 @@ const UnitHeader = ({
             <div
                 className="absolute h-3 w-3 rotate-45 border-b-2 border-r-2 border-gray-200 bg-white"
                 style={{
-                    right: "-8px", // Align arrow to the right edge of the hover label
+                    [isEven ? 'right' : 'left']: "-8px", // Align arrow to the correct side
                     top: "50%", // Center the arrow vertically
                     transform: "translateY(-50%)",
                 }}
@@ -144,6 +137,7 @@ const UnitHeader = ({
         </div>
     );
 };
+
 
   const LessonCompletionSvg = ({
     lessonsCompleted,
