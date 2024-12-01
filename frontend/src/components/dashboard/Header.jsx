@@ -11,12 +11,16 @@ const Header = ({ title, subtitle }) => {
         color={colors.grey[100]}
         fontWeight="bold"
         fontSize={'24px'}
-        sx={{ m: "0 0 5px 0" }}
+        sx={{ m: "0 0 5px 0", fontFamily: "Poppins, sans-serif" }} // Add Poppins font
       >
         {title}
       </Typography>
       <div className="my-2"></div>
-      <Typography fontSize={'20px'} color={colors.greenAccent[400]}>
+      <Typography
+        fontSize={'20px'}
+        color={colors.greenAccent[400]}
+        sx={{ fontFamily: "Poppins, sans-serif" }} // Add Poppins font
+      >
         {subtitle}
       </Typography>
     </Box>

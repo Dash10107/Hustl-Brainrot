@@ -41,7 +41,8 @@
     "redux-persist": "^6.0.0",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "typeface-poppins": "^1.1.13"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

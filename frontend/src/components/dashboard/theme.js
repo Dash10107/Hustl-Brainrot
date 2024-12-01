@@ -1,6 +1,5 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
-import './dashboard.css';
 
 // color design tokens export
 export const tokens = (mode) => ({
@@ -164,31 +163,31 @@ export const themeSettings = (mode) => {
           }),
     },
     typography: {
-      fontFamily: ["Poppins", "sans-serif"].join(","),
+      fontFamily: "Poppins, sans-serif", // Use Poppins font
       fontSize: 12,
       h1: {
-        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontFamily: "Poppins, sans-serif", // Ensure h1 uses Poppins font
         fontSize: 40,
       },
       h2: {
-        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontFamily: "Poppins, sans-serif", // Ensure h2 uses Poppins font
         fontSize: 32,
       },
       h3: {
-        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontFamily: "Poppins, sans-serif", // Ensure h3 uses Poppins font
         fontSize: 24,
       },
       h4: {
-        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontFamily: "Poppins, sans-serif", // Ensure h4 uses Poppins font
         fontSize: 20,
       },
       h5: {
-        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontFamily: "Poppins, sans-serif", // Ensure h5 uses Poppins font
         fontSize: 16,
       },
       h6: {
-        fontFamily: ["Poppins", "sans-serif"].join(","),
-        fontSize: 14,
+        fontFamily: "Poppins, sans-serif", // Ensure h6 uses Poppins font
+        fontSize: 12,
       },
     },
   };

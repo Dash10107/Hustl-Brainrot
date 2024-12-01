@@ -17,6 +17,7 @@ import ProtectedRoute from './components/admin/ProtectedRoute'
 import Dashboard from './components/dashboard/Dashboard'
 import AiInterview from './components/AiInterview'
 import JobPathway from './components/JobPathway'
+import 'typeface-poppins';
 
 
 const appRouter = createBrowserRouter([
