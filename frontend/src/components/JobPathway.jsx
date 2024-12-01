@@ -1,35 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Target, Book, Award, CheckCircle } from "lucide-react";
 import { response } from "./response";
-import "./pathway.css"
-
-const PathwaySection = ({ icon: Icon, title, items }) => {
-  if (!items || items.length === 0) return null;
-
-  return (
-    <div className="timeline-content-section">
-      <div className="flex items-center mb-2">
-        <Icon className="mr-2 text-blue-600" />
-        <h3 className="font-semibold text-lg text-gray-800">{title}</h3>
-      </div>
-      <ul className="space-y-2 pl-8">
-        {items.map((item, index) => (
-          <li key={index} className="flex items-start text-gray-700">
-            <CheckCircle className="text-green-500 w-5 h-5 mr-2" />
-            {item.includes("**") ? (
-              <>
-                <strong>{item.split("**")[1]}:</strong> {item.replace(/\*\*.*?\*\*/g, "")}
-              </>
-            ) : (
-              item
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+import "./pathway.css";
+import { HoverLabel, LessonCompletionSvg, TileIcon, UnitHeader } from "./pathwayComp";
+import Navbar from "./shared/Navbar";
 
 const JobPathway = () => {
   const { id: jobId } = useParams();
@@ -41,7 +15,7 @@ const JobPathway = () => {
     const fetchCareerPathway = async () => {
       try {
         console.log("Fetching data for jobId:", jobId);
-        setData(response.pathway); // Mock data
+        setData(response.pathway.pathJson); // Mock data
       } catch (err) {
         setError(err.message || "Error fetching data.");
       } finally {
@@ -67,70 +41,143 @@ const JobPathway = () => {
     );
   }
 
-  const pathJson = data?.pathJson || {};
-  const job = data?.job || {};
-  const certifications = data?.certifications || [];
+
+
+  const tileLeftClassNames = [
+    "left-0",
+    "left-[-45px]",
+    "left-[-70px]",
+    "left-[-45px]",
+    "left-[45px]",
+    "left-[135px]",
+
+  ]
+
+  const getTileLeftClassName = ({ index,unitNumber, tilesLength }) => {
+    
+    const classNames =
+    unitNumber % 2 === 1
+      ? tileLeftClassNames
+      : [...tileLeftClassNames.slice(4), ...tileLeftClassNames.slice(0, 4)];
+
+  return classNames[index % classNames.length] ?? "left-0";
+
+  };
+
+  const getTileColors = ({ tileType, status, defaultColors }) => {
+    switch (status) {
+      case "LOCKED":
+        if (tileType === "fast-forward") return defaultColors;
+        return "border-gray-300 bg-gray-200";
+      case "COMPLETE":
+        return "border-yellow-500 bg-yellow-400";
+      case "ACTIVE":
+        return defaultColors;
+      default:
+        return "";
+    }
+  };
 
   return (
-    <div className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen">
-      <div className="max-w-5xl mx-auto bg-white rounded-xl overflow-hidden">
-        <div className="bg-blue-600 text-white p-6">
-          <h1 className="text-3xl font-bold">{job.title || "Job Title"}</h1>
-          <p className="mt-2 text-lg font-normal text-blue-100">{job.description || "Job description not available."}</p>
-        </div>
+    <div className="p-6 bg-white min-h-screen">
+      <Navbar/>
+      {/* heading */}
+      <div className="text-center">
+        <h1 className="text-3xl font-bold">Pathway for {response.pathway.job.title} </h1>
+        {/* <p className="mt-2 text-lg font-normal text-gray-700"></p> */}
+      </div>
+      <div className="relative mb-8 mt-8 flex flex-col items-center gap-6 max-w-3xl mx-auto">
+      {Object.entries(data).map(([timeframe, details], i) =>{
+        // console.log(timeframe, details);
+          const status = "ACTIVE"; // Mock status
+          return (
+            <Fragment key={i}>
+              {(() => {
+                switch (details.type) {
+                  case "star":
+                  case "book":
+                  case "trophy":
+                  case "fast-forward":
+                    return (
+                      <div
+                        className={[
+                          "relative h-24 w-24",
+                          getTileLeftClassName({
+                            index: i,
+                            unitNumber: details.unitNumber,
+                            tilesLength: details.Skills.length,
+                          }),
+                        ].join(" ")}
+                      >
+                        <div className="relative group">
+                          <button
+                            type="button"
+                            className={[
+                              "absolute rounded-full border-4 p-4 hover:scale-110 transition-transform",
+                              getTileColors({
+                                tileType: details.type,
+                                status,
+                                defaultColors: `${details.borderColor} ${details.backgroundColor}`,
+                              }),
+                            ].join(" ")}
+                          >
+                            
+                            <TileIcon tileType={details.type} status={status} />
+                          </button>
+                          <HoverLabel
+                            details={details}
+                            textColor="text-gray-700"
+                            className="opacity-0 group-hover:opacity-100 transition-opacity absolute top-0 left-1/2 w-full mx-auto bg-white border border-gray-200 rounded-2xl p-4 transform-translate-x-1/2 -translate-y-full bg-gray-100 text-sm shadow-md rounded-md p-2"
+                          />
+                        </div>
+                      </div>
+                    );
+                  case "treasure":
+                    return (
+                      <div
+                        className="relative h-24 w-24"
+                        onClick={() => {
+                          if (status === "ACTIVE") {
+                            // Handle active treasure click
+                          }
+                        }}
+                        tabIndex={status === "ACTIVE" ? 0 : undefined}
+                        aria-hidden={status !== "ACTIVE"}
+                        aria-label={status === "ACTIVE" ? "Collect reward" : ""}
+                      >
+                        <TileIcon tileType={tile.type} status={status} />
+                      </div>
+                    );
+                  default:
+                    return null;
+                }
+              })()}
+            </Fragment>
+          );
+        })}
 
-        <div className="p-6 relative">
-          <div className="timeline-line"></div>
-
-          {Object.entries(pathJson).map(([stage, content], index) => (
-            <div key={stage} className="flex flex-col mb-8 relative">
-              <div className="timeline-step">
-                <div className="timeline-step-number">{index + 1}</div>
-                {index < Object.entries(pathJson).length - 1 && (
-                  <div className="w-px bg-blue-600 h-full absolute left-1/2 -top-8"></div>
-                )}
-              </div>
-              <div className="timeline-step-content">
-                <h2 className="timeline-stage-title">{stage}</h2>
-                <div className="space-y-4">
-                  <PathwaySection icon={Target} title="Skills" items={content?.Skills} />
-                  <PathwaySection icon={Book} title="Tasks" items={content?.Tasks} />
-                  <PathwaySection icon={Award} title="Tips" items={content?.Tips} />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Certifications Section */}
-        <div className="border rounded-2xl p-6 m-3">
-          <h3 className="font-semibold text-lg text-gray-800 mb-3">Recommended Certifications</h3>
-          {certifications.length > 0 ? (
-            <ul className="space-y-2">
-              {certifications.map((cert, index) => (
-                <li
-                  key={index}
-                  className="bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-all"
+        {/* certifications */}
+        <div className="w-[80vw]  bg-white border border-gray-200 rounded-2xl p-4">
+          <h2 className="text-lg font-bold text-gray-700">Certifications</h2>
+          <ul className="space-y-2">
+            {response.pathway.certifications.map((cert, index) => (
+              <li key={index} className="bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-all">
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Learn more about ${cert.title}`}
+                  className="text-blue-600 hover:underline flex items-center"
                 >
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Learn more about ${cert.title}`}
-                    className="text-blue-600 hover:underline flex items-center"
-                  >
-                    <CheckCircle className="mr-2 text-green-500 w-5 h-5" />
-                    {cert.title}
-                  </a>
-                </li>
-              ))}
+                  {cert.title}
+                </a>
+              </li>
+            ))}
             </ul>
-          ) : (
-            <p className="text-gray-500">No certifications available.</p>
-          )}
         </div>
       </div>
     </div>
   );
 };
- export default JobPathway;
+
+export default JobPathway;

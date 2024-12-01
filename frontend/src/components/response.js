@@ -22,6 +22,12 @@ export const response = {
     },
     pathJson: {
       "0-3 Months": {
+
+        unitNumber: 1,
+        backgroundColor: "bg-[#58cc02]",
+        textColor: "text-[#58cc02]",
+        borderColor: "border-[#46a302]",
+        type : "star",
         Skills: [
           "JavaScript (ES6+)",
           "HTML5",
@@ -36,13 +42,13 @@ export const response = {
           "Build a single-page application (SPA) using React.js",
           "Contribute to open-source projects on GitHub",
         ],
-        Tips: [
-          "Focus on building a strong foundation in core technologies",
-          "Practice writing clean and maintainable code",
-          "Get involved in online communities and forums",
-        ],
       },
       "3-6 Months": {
+        unitNumber: 1,
+        backgroundColor: "bg-[#58cc02]",
+        textColor: "text-[#58cc02]",
+        borderColor: "border-[#46a302]",
+        type : "star",
         Skills: [
           "Database Management Systems (e.g., MySQL, MongoDB)",
           "Object-Relational Mapping (ORM) tools",
@@ -56,13 +62,14 @@ export const response = {
           "Containerize a Node.js application using Docker",
           "Learn about serverless architectures (e.g., AWS Lambda, Google Cloud Functions)",
         ],
-        Tips: [
-          "Explore different database technologies and their use cases",
-          "Practice designing RESTful APIs that are scalable and maintainable",
-          "Get hands-on experience with cloud computing platforms",
-        ],
       },
       "6-12 Months": {
+        unitNumber: 1,
+        type : "star",
+        backgroundColor: "bg-[#58cc02]",
+        textColor: "text-[#58cc02]",
+        borderColor: "border-[#46a302]",
+
         Skills: [
           "Testing frameworks (e.g., Jest, Mocha)",
           "Continuous integration and delivery (CI/CD) tools",
@@ -75,13 +82,13 @@ export const response = {
           "Build a PWA that works seamlessly across devices",
           "Develop serverless functions for a cloud application",
         ],
-        Tips: [
-          "Choose the right testing framework for your project",
-          "Learn about CI/CD best practices",
-          "Explore the benefits and limitations of PWAs",
-        ],
       },
       "1-2 Years": {
+        unitNumber: 1,
+        backgroundColor: "bg-[#58cc02]",
+        textColor: "text-[#58cc02]",
+        borderColor: "border-[#46a302]",
+        type : "star",
         Skills: [
           "Full-stack development frameworks (e.g., Next.js, Gatsby)",
           "Microservices architecture",
@@ -94,13 +101,13 @@ export const response = {
           "Create a GraphQL API for a data-intensive application",
           "Contribute to a team-based project using Agile methodologies",
         ],
-        Tips: [
-          "Learn about different full-stack frameworks and their advantages",
-          "Understand the concepts of microservices and their benefits",
-          "Practice using GraphQL for efficient data fetching",
-        ],
       },
       "2+ Years": {
+        unitNumber: 1,
+        backgroundColor: "bg-[#58cc02]",
+        textColor: "text-[#58cc02]",
+        borderColor: "border-[#46a302]",
+        type : "star",
         Skills: [
           "Cloud-native development",
           "DevOps practices",
@@ -112,11 +119,6 @@ export const response = {
           "Implement DevOps practices to automate and streamline software development",
           "Optimize the performance of a web application using caching and code profiling",
           "Secure a web application against common vulnerabilities",
-        ],
-        Tips: [
-          "Specialize in a cloud computing platform (e.g., AWS, Azure, GCP)",
-          "Adopt DevOps principles and tools",
-          "Stay up-to-date on the latest security best practices",
         ],
       },
     },
