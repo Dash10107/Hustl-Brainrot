@@ -83,8 +83,8 @@ const JobPathway = () => {
       <Navbar/>
       {/* heading */}
       <div className="text-center">
-        <h1 className="text-3xl font-bold">Pathway for {response.pathway.job.title} </h1>
-        {/* <p className="mt-2 text-lg font-normal text-gray-700"></p> */}
+        <h1 className="text-3xl font-bold">Pathway for </h1>
+        <p className="mt-2 text-lg font-normal text-gray-700">{response.pathway.job.title}</p>
       </div>
       <div className="relative mb-8 mt-8 flex flex-col items-center gap-6 max-w-3xl mx-auto">
       {Object.entries(data).map(([timeframe, details], i) =>{

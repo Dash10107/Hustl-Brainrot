@@ -10,10 +10,10 @@ function Interviewlist() {
     const {user}=useUser();
     const [interviewList,setInterviewList]=useState([])
     useEffect(()=>{
-         user&& GetInterviewList()
+         GetInterviewList()
     },[user])
     const GetInterviewList=async()=>{
-        const result=await db.select().from(MockInterview).where(eq(MockInterview.createdBy,user?.primaryEmailAddress?.emailAddress)).orderBy(desc(MockInterview.id))
+        const result=await db.select().from(MockInterview).where(eq(MockInterview.createdBy,"voravinay6@gmail.com")).orderBy(desc(MockInterview.id))
         setInterviewList(result)
     }
   return (
