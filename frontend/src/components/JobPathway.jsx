@@ -45,11 +45,11 @@ const JobPathway = () => {
 
   const tileLeftClassNames = [
     "left-0",
-    "left-[-45px]",
-    "left-[-70px]",
-    "left-[-45px]",
-    "left-[45px]",
-    "left-[135px]",
+    "left-0",
+    "left-0",
+    "left-0",
+    "left-0",
+    "left-0",
 
   ]
 
@@ -83,78 +83,86 @@ const JobPathway = () => {
       <Navbar/>
       {/* heading */}
       <div className="text-center">
-        <h1 className="text-3xl font-bold">Pathway for </h1>
-        <p className="mt-2 text-lg font-normal text-gray-700">{response.pathway.job.title}</p>
+        <h1 className="text-3xl font-bold">Pathway for {response.pathway.job.title} </h1>
+        {/* <p className="mt-2 text-lg font-normal text-gray-700"></p> */}
       </div>
       <div className="relative mb-8 mt-8 flex flex-col items-center gap-6 max-w-3xl mx-auto">
-      {Object.entries(data).map(([timeframe, details], i) =>{
-        // console.log(timeframe, details);
-          const status = "ACTIVE"; // Mock status
-          return (
-            <Fragment key={i}>
-              {(() => {
-                switch (details.type) {
-                  case "star":
-                  case "book":
-                  case "trophy":
-                  case "fast-forward":
-                    return (
+      {Object.entries(data).map(([timeframe, details], i) => {
+    const status = "ACTIVE"; // Mock status
+    return (
+      <Fragment key={i}>
+      {(() => {
+          switch (details.type) {
+              case "star":
+              case "book":
+              case "trophy":
+              case "fast-forward":
+                  return (
+                    <>
                       <div
-                        className={[
-                          "relative h-24 w-24",
-                          getTileLeftClassName({
-                            index: i,
-                            unitNumber: details.unitNumber,
-                            tilesLength: details.Skills.length,
-                          }),
-                        ].join(" ")}
-                      >
-                        <div className="relative group">
-                          <button
-                            type="button"
-                            className={[
-                              "absolute rounded-full border-4 p-4 hover:scale-110 transition-transform",
-                              getTileColors({
-                                tileType: details.type,
-                                status,
-                                defaultColors: `${details.borderColor} ${details.backgroundColor}`,
+                          className={[
+                              "relative h-6 w-36 ",
+                              getTileLeftClassName({
+                                  index: i,
+                                  unitNumber: 1,
+                                  tilesLength: details.Skills.length,
                               }),
-                            ].join(" ")}
-                          >
-                            
-                            <TileIcon tileType={details.type} status={status} />
-                          </button>
-                          <HoverLabel
-                            details={details}
-                            textColor="text-gray-700"
-                            className="opacity-0 group-hover:opacity-100 transition-opacity absolute top-0 left-1/2 w-full mx-auto bg-white border border-gray-200 rounded-2xl p-4 transform-translate-x-1/2 -translate-y-full text-sm shadow-md"
-                          />
-                        </div>
-                      </div>
-                    );
-                  case "treasure":
-                    return (
-                      <div
-                        className="relative h-24 w-24"
-                        onClick={() => {
-                          if (status === "ACTIVE") {
-                            // Handle active treasure click
-                          }
-                        }}
-                        tabIndex={status === "ACTIVE" ? 0 : undefined}
-                        aria-hidden={status !== "ACTIVE"}
-                        aria-label={status === "ACTIVE" ? "Collect reward" : ""}
+                          ].join(" ")}
                       >
-                        <TileIcon tileType={tile.type} status={status} />
+                          <div className="relative group">
+                              <button
+                                  type="button"
+                                  className={[
+                                      "absolute rounded-full border-4 p-4 hover:scale-110 transition-transform ",
+                                      getTileColors({
+                                          tileType: details.type,
+                                          status,
+                                          defaultColors: `${details.borderColor} ${details.backgroundColor}`,
+                                      }),
+                                  ].join(" ")}
+                              >
+                                  <TileIcon tileType={details.type} status={status} />
+                              </button>
+                              <HoverLabel
+                                  details={details}
+                                  textColor="text-gray-700"
+                                  className="bg-white border border-gray-200 rounded-2xl p-4 transform-translate-x-1/2 -translate-y-full text-sm shadow-md"
+                                  index={i} // Pass the index to HoverLabel
+                              />
+                          </div>
                       </div>
-                    );
-                  default:
-                    return null;
-                }
-              })()}
-            </Fragment>
-          );
-        })}
+                      <svg width="6" height="325" viewBox="0 0 6 325" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="3" y1="1.31134e-07" x2="2.99999" y2="330" stroke="black" stroke-width="4" stroke-dasharray="14 14"/>
+                      </svg>
+                      </>
+                  );
+              case "treasure":
+                  return (
+                      <div
+                          className="relative h-24 w-24"
+                          onClick={() => {
+                              if (status === "ACTIVE") {
+                                  // Handle active treasure click
+                              }
+                          }}
+                          tabIndex={status === "ACTIVE" ? 0 : undefined}
+                          aria-hidden={status !== "ACTIVE"}
+                          aria-label={status === "ACTIVE" ? "Collect reward" : ""}
+                      >
+                          <TileIcon tileType={tile.type} status={status} />
+                      </div>
+                  );
+              default:
+                  return null;
+          }
+      })()}
+      {/* Insert a line between nodes except after the last node */}
+      {i !== details.Skills.length - 1 && <hr className="my-4 border-t border-gray-300" />}
+  </Fragment>
+  
+    );
+})}
+
 
         {/* certifications */}
         <div className="w-[80vw] bg-white border border-gray-200 rounded-2xl p-6 mt-8 shadow-lg">
