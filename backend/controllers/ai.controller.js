@@ -93,7 +93,6 @@ Make sure to provide detailed and thoughtful insights, as this will be used to h
 
 
 
-// Prompt Template for Career Pathway
 const careerPathwayTemplate = `
 You are an advanced career advisor AI specializing in actionable career pathways for job seekers.
 
@@ -101,21 +100,41 @@ Job Title: {title}
 Job Description: {description}
 Requirements: {requirements}
 
+Create a detailed career pathway for this role in the following JSON format:
 
-Create a detailed career pathway for this role. Include:
-1. Recommended skills to develop.
-2. Certifications or courses to take (platforms like Coursera, Udemy, etc.).
-3. A step-by-step timeline for progression.
-4. Examples of potential job titles leading to this role.
-5. Tips for excelling in this career.
 
-**Format:**
-- **Skills**: [list of skills]
-- **Certifications**: [list of certifications or courses]
-- **Timeline**: [step-by-step progression]
-- **Potential Roles**: [list of roles]
-- **Tips**: [career tips]
+  "0-3 Months": 
+    "Skills": [list of skills to develop in this time frame],
+    "Tasks": [list of actionable steps or projects to work on],
+    "Tips": [tips for excelling in this stage]
+  ,
+  "3-6 Months": 
+    "Skills": [list of skills to develop in this time frame],
+
+    "Tasks": [list of actionable steps or projects to work on],
+    "Tips": [tips for excelling in this stage]
+  ,
+  "6-12 Months": 
+    "Skills": [list of skills to develop in this time frame],
+    "Tasks": [list of actionable steps or projects to work on],
+    "Tips": [tips for excelling in this stage]
+  ,
+  "1-2 Years": 
+    "Skills": [list of skills to develop in this time frame],
+    "Tasks": [list of actionable steps or projects to work on],
+    "Tips": [tips for excelling in this stage]
+  ,
+  "2+ Years": 
+    "Skills": [list of advanced skills to master],
+    "Tasks": [list of high-level projects or responsibilities],
+    "Tips": [strategies for long-term success and growth]
+  
+
+
+Ensure the roadmap is comprehensive, actionable, and tailored to the role. Highlight key certifications and resources like Coursera, Udemy, or industry-recognized platforms.
 `;
+
+
 
 const rankingPromptTemplate = `
 You are an advanced AI system responsible for comprehensively ranking job applicants across multiple evaluation dimensions. Your role is to analyze the AI-generated insights, including the applicant's resume and social profile information, to provide a detailed and nuanced ranking score between 0 and 100.
