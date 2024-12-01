@@ -97,48 +97,53 @@ const UnitHeader = ({
   const HoverLabel = ({
     details,
     className
-  }) => {
+}) => {
     const hoverElement = useRef(null);
     const [width, setWidth] = useState(72);
-  
+
     useEffect(() => {
-      setWidth(hoverElement.current?.clientWidth ?? width);
+        setWidth(hoverElement.current?.clientWidth ?? width);
     }, [hoverElement.current?.clientWidth, width]);
-  
+
     return (
-<div
-  className={`absolute z-10 w-max rounded-lg border-2 border-gray-200  px-5 py-4  shadow-lg ${className}`}
-  style={{
-    top: "-30%",
-    left: `calc(50% - ${width / 2}px)`,
-  }}
-  ref={hoverElement}
->
-  <h3 className="text-lg font-bold mb-2">Skills</h3>
-  <ul className="list-disc ml-5 mb-4">
-    {details?.Skills?.map((skill, index) => (
-      <li key={index} className="text-sm">
-        {skill}
-      </li>
-    ))}
-  </ul>
+        <div
+            className={`absolute z-10 w-max rounded-lg border-2 border-gray-200 bg-white px-5 py-4 shadow-lg ${className}`}
+            style={{
+                top: "50%",
+                left: `-${width + 40}px`, // Adjust to position on the left
+                transform: "translateY(-50%)", // Center vertically
+            }}
+            ref={hoverElement}
+        >
+            <h3 className="text-lg font-bold mb-2">Skills</h3>
+            <ul className="list-disc ml-5 mb-4">
+                {details?.Skills?.map((skill, index) => (
+                    <li key={index} className="text-sm">
+                        {skill}
+                    </li>
+                ))}
+            </ul>
 
-  <h3 className="text-lg font-bold mb-2">Tasks</h3>
-  <ul className="list-disc ml-5">
-    {details?.Tasks?.map((task, index) => (
-      <li key={index} className="text-sm">
-        {task}
-      </li>
-    ))}
-  </ul>
+            <h3 className="text-lg font-bold mb-2">Tasks</h3>
+            <ul className="list-disc ml-5">
+                {details?.Tasks?.map((task, index) => (
+                    <li key={index} className="text-sm">
+                        {task}
+                    </li>
+                ))}
+            </ul>
 
-  <div
-    className="absolute h-3 w-3 rotate-45 border-b-2 border-r-2 border-gray-200 bg-dark-blue"
-    style={{ left: "calc(50% - 8px)", bottom: "-8px" }}
-  ></div>
-</div>
+            <div
+                className="absolute h-3 w-3 rotate-45 border-b-2 border-r-2 border-gray-200 bg-white"
+                style={{
+                    right: "-8px", // Align arrow to the right edge of the hover label
+                    top: "50%", // Center the arrow vertically
+                    transform: "translateY(-50%)",
+                }}
+            ></div>
+        </div>
     );
-  };
+};
 
   const LessonCompletionSvg = ({
     lessonsCompleted,

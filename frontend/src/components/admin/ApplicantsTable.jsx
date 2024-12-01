@@ -44,7 +44,7 @@ const ApplicantsTable = () => {
 
   return (
     <div>
-      <Table>
+      <Table className>
         <TableCaption>A list of your recent applied users</TableCaption>
         <TableHeader>
           <TableRow>
@@ -56,54 +56,6 @@ const ApplicantsTable = () => {
             <TableHead className="text-right">Action</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
-          {applicants &&
-            applicants?.applications?.map(item => (
-              <TableRow key={item._id}>
-                <TableCell
-                  className="hover:underline underline-offset-2 transition-all cursor-pointer"
-                  onClick={() => setOpen(true)}
-                >
-                  {item?.applicant?.fullname}
-                </TableCell>
-                <TableCell>{item?.applicant?.email}</TableCell>
-                <TableCell>{item?.applicant?.phoneNumber}</TableCell>
-                <TableCell>
-                  {item.applicant?.profile?.resume ? (
-                    <a
-                      className="text-blue-600 cursor-pointer"
-                      href={item?.applicant?.profile?.resume}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {item?.applicant?.profile?.resumeOriginalName}
-                    </a>
-                  ) : (
-                    <span>NA</span>
-                  )}
-                </TableCell>
-                <TableCell>{item?.applicant.createdAt.split('T')[0]}</TableCell>
-                <TableCell className="float-right cursor-pointer">
-                  <Popover>
-                    <PopoverTrigger>
-                      <MoreHorizontal />
-                    </PopoverTrigger>
-                    <PopoverContent className="w-32">
-                      {shortlistingStatus.map((status, index) => (
-                        <div
-                          onClick={() => statusHandler(status, item?._id)}
-                          key={index}
-                          className="flex w-fit items-center my-2 cursor-pointer"
-                        >
-                          <span>{status}</span>
-                        </div>
-                      ))}
-                    </PopoverContent>
-                  </Popover>
-                </TableCell>
-              </TableRow>
-            ))}
-        </TableBody>
         {/* <PopupModal open={open} setOpen={setOpen}/> */}
         <JobInsights jobId={applicants?.jobId} />
       </Table>

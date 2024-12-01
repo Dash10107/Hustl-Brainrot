@@ -46,7 +46,7 @@ export const data = {
       {
         applicant: {
           id: "6749e7a2de8f95cbd496eb70",
-          fullname: "Harsh Jhaveri",
+          fullname: "Vinisha Bhagwani",
           email: "sample1@gmail.com",
           skills: ["Full Stack Developer"]
         },
@@ -85,7 +85,7 @@ export const data = {
              {
             "applicant": {
                 "id": "6749e6a0de8f95cbd496eb58",
-                "fullname": "sample person",
+                "fullname": "Ronak Bhanushali",
                 "email": "sample@gmail.com",
                 "skills": [
                     "Full Stack Developer Java"
