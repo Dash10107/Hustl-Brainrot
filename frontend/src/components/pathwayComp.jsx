@@ -97,12 +97,12 @@ const UnitHeader = ({
   const HoverLabel = ({ details, className, index }) => {
     const fixedWidth = 500; // Set a fixed width for all HoverLabels
     const isEven = index % 2 === 0;
-
+          
     return (
         <div
             className={`absolute z-10 rounded-lg border-2 border-gray-200 bg-white px-5 py-4 shadow-lg ${className}`}
             style={{
-                top: "50%",
+                top: index==0? "200%" :  "50%",
                 width: `${fixedWidth}px`, // Set fixed width
                 left: isEven ? `-${fixedWidth + 40}px` : `calc(100% + 40px)`, // Adjust for left or right
                 transform: "translateY(-50%)", // Center vertically

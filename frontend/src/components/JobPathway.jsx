@@ -1,9 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { response } from "./response";
+
 import "./pathway.css";
 import { HoverLabel, LessonCompletionSvg, TileIcon, UnitHeader } from "./pathwayComp";
 import Navbar from "./shared/Navbar";
+import axios from "axios";
 
 const JobPathway = () => {
   const { id: jobId } = useParams();
@@ -14,6 +15,7 @@ const JobPathway = () => {
   useEffect(() => {
     const fetchCareerPathway = async () => {
       try {
+        const response = await axios.get(`http://localhost:8000/api/v1/ai/jobs/${jobId}/pathway`);
         console.log("Fetching data for jobId:", jobId);
         setData(response.pathway.pathJson); // Mock data
       } catch (err) {
@@ -101,7 +103,7 @@ const JobPathway = () => {
                     <>
                       <div
                           className={[
-                              "relative h-6 w-36 ",
+                              "relative h-12 w-36 ",
                               getTileLeftClassName({
                                   index: i,
                                   unitNumber: 1,
@@ -109,20 +111,20 @@ const JobPathway = () => {
                               }),
                           ].join(" ")}
                       >
-                          <div className="relative group">
-                              <button
-                                  type="button"
-                                  className={[
-                                      "absolute rounded-full border-4 p-4 hover:scale-110 transition-transform ",
-                                      getTileColors({
-                                          tileType: details.type,
-                                          status,
-                                          defaultColors: `${details.borderColor} ${details.backgroundColor}`,
-                                      }),
-                                  ].join(" ")}
-                              >
-                                  <TileIcon tileType={details.type} status={status} />
-                              </button>
+<div className="flex flex-col items-center relative">
+    <button
+        type="button"
+        className={[
+            "rounded-full border-4 p-4 hover:scale-110 transition-transform",
+            getTileColors({
+                tileType: details.type,
+                status,
+                defaultColors: `${details.borderColor} ${details.backgroundColor}`,
+            }),
+        ].join(" ")}
+    >
+        <TileIcon tileType={details.type} status={status} />
+    </button>
                               <HoverLabel
                                   details={details}
                                   textColor="text-gray-700"
@@ -157,7 +159,27 @@ const JobPathway = () => {
           }
       })()}
       {/* Insert a line between nodes except after the last node */}
-      {i !== details.Skills.length - 1 && <hr className="my-4 border-t border-gray-300" />}
+      {i !== details.Skills.length - 1 && 
+      <svg
+    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+    width="6"
+    height="325"
+    viewBox="0 0 6 325"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <line
+        x1="3"
+        y1="0"
+        x2="3"
+        y2="325"
+        stroke="black"
+        strokeWidth="4"
+        strokeDasharray="14 14"
+    />
+</svg>
+
+      }
   </Fragment>
   
     );
