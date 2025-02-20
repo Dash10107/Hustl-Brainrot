@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "./pathway.css";
 import { HoverLabel, LessonCompletionSvg, TileIcon, UnitHeader } from "./pathwayComp";
 import Navbar from "./shared/Navbar";
+import { response } from "./response";
 import axios from "axios";
 
 const JobPathway = () => {
@@ -15,8 +16,8 @@ const JobPathway = () => {
   useEffect(() => {
     const fetchCareerPathway = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/ai/jobs/${jobId}/pathway`);
-        console.log("Fetching data for jobId:", jobId);
+        // const response = await axios.get(`http://localhost:8000/api/v1/ai/jobs/${jobId}/pathway`);
+        // console.log("Fetching data for jobId:", jobId);
         setData(response.pathway.pathJson); // Mock data
       } catch (err) {
         setError(err.message || "Error fetching data.");

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ApplicantCard from "./AdminApplicant";
+import { response } from "../response";
 
 function parseInsights(insights) {
   try {
@@ -30,7 +31,7 @@ const JobInsights = ({ jobId }) => {
   useEffect(() => {
     const fetchJobData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/ai/jobs/${jobId}/applicants`);
+        // const response = await axios.get(`http://localhost:8000/api/v1/ai/jobs/${jobId}/applicants`);
         const data = response.data
         setJobData(data.job);
         setApplicantsData(data.applicants);
